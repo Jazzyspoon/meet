@@ -101,3 +101,45 @@ module.exports.getAccessToken = async (event) => {
       };
     });
 };
+
+
+//get calendar info from API
+
+
+module.exports.getCalanderEvents = async (event) => {
+  return new Promise((resolve, reject) => {
+    const oAuth2Client = new google.auth.OAuth2(calendar_id);
+
+    const access_token = oAuth2Client.setCredentials(
+      `${calendar.events.list}`
+    );
+
+    oAuth2Client.getEvents(access_token, (err, token) => {
+      calendar.events.list(
+        {
+          calendarId: calendar_id,
+          auth: oAuth2Client,
+          timeMin: new Date().toISOString(),
+          singleEvents: true,
+          orderBy: "startTime",
+        },
+        
+        (error, response) => {
+          if (error) {
+            reject(error);
+          } else {
+         
+            
+            .then((token) => {
+            // Respond with OAuth token
+            return {
+              resolve(response),
+              statusCode: 200,
+              headers: {
+                "Access-Control-Allow-Origin": "*",
+              },
+            body: JSON.stringify({ events: results.data.items })
+          }
+        }
+      )
+        })
