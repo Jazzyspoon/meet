@@ -102,44 +102,53 @@ module.exports.getAccessToken = async (event) => {
     });
 };
 
-
 //get calendar info from API
 
+module.exports.getCalendarEvents = async (event) => {
+  const oAuth2Client = new google.auth.OAuth2(
+    client_id,
+    client_secret,
+    redirect_uris[0]
+  );
+  const access_token = decodeURIComponent(
+    `${event.pathParameters.access_token}`
+  );
+  oAuth2Client.setCredentials({ access_token });
 
-module.exports.getCalanderEvents = async (event) => {
   return new Promise((resolve, reject) => {
-    const oAuth2Client = new google.auth.OAuth2(calendar_id);
-
-    const access_token = oAuth2Client.setCredentials(
-      `${calendar.events.list}`
-    );
-
-    oAuth2Client.getEvents(access_token, (err, token) => {
-      calendar.events.list(
-        {
-          calendarId: calendar_id,
-          auth: oAuth2Client,
-          timeMin: new Date().toISOString(),
-          singleEvents: true,
-          orderBy: "startTime",
-        },
-        
-        (error, response) => {
-          if (error) {
-            reject(error);
-          } else {
-         
-            
-            .then((token) => {
-            // Respond with OAuth token
-            return {
-              resolve(response),
-              statusCode: 200,
-              headers: {
-                "Access-Control-Allow-Origin": "*",
-              },
-            body: JSON.stringify({ events: results.data.items })
-          }
+    calendar.events.list(
+      {
+        calendarId: calendar_id,
+        auth: oAuth2Client,
+        timeMin: new Date().toISOString(),
+        singleEvents: true,
+        orderBy: "startTime",
+      },
+      (error, response) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(response);
         }
-      )
-        })
+      }
+    );
+  })
+    .then((results) => {
+      // Respond with OAuth token
+      return {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({ events: results.data.items }),
+      };
+    })
+    .catch((err) => {
+      // Handle error
+      console.error(err);
+      return {
+        statusCode: 500,
+        body: JSON.stringify(err),
+      };
+    });
+};

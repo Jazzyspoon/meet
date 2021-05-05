@@ -8,6 +8,12 @@ provider:
     CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
     PROJECT_ID: ${file(config.json):PROJECT_ID}
     CALENDAR_ID: ${file(config.json):CALENDAR_ID}
+    region: us-east-2
+  timeout: 60
+  lambdaHashingVersion:
+    20201221
+
+    # functions
 functions:
   getAuthURL:
     handler: handler.getAuthURL
@@ -22,7 +28,7 @@ functions:
           path: api/token/{code}
           method: get
   getCalendarEvents:
-    handler: handler.getAccessToken
+    handler: handler.getCalendarEvents
     events:
       - http:
           path: api/get-events/{access_token}
