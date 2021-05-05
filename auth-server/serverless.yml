@@ -9,7 +9,7 @@ provider:
     PROJECT_ID: ${file(config.json):PROJECT_ID}
     CALENDAR_ID: ${file(config.json):CALENDAR_ID}
     region: us-east-2
-  timeout: 60
+  timeout: 30
   lambdaHashingVersion:
     20201221
 
