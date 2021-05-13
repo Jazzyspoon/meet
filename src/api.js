@@ -95,7 +95,7 @@ const getToken = async (code) => {
   removeQuery();
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
-    `https://f1k17pnw2a.execute-api.us-east-1.amazonaws.com/dev/api/token/${encodeCode}`
+    `https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api/token/${encodeCode}`
   )
     .then((res) => {
       return res.json();
