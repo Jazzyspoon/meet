@@ -1,4 +1,4 @@
-import { mockEvents } from "./mock-data";
+import { mockEvent } from "./mock-data";
 import axios from "axios";
 import NProgress from "nprogress";
 
@@ -47,7 +47,7 @@ const getEvents = async (max_results = 32) => {
 
   if (window.location.href.startsWith("http://localhost")) {
     NProgress.done();
-    return { events: mockEvents, locations: extractLocations(mockEvents) };
+    return { events: mockEvent, locations: extractLocations(mockEvent) };
   }
   if (!navigator.onLine) {
     const { events } = await localStorage.getItem("lastEvents");
