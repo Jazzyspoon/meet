@@ -1,4 +1,4 @@
-import { mockEvent } from "./mock-data";
+import { mockData } from "./mock-data";
 import axios from "axios";
 import NProgress from "nprogress";
 
@@ -42,33 +42,30 @@ const extractLocations = (events) => {
   return locations;
 };
 
-const getEvents = async (max_results = 32) => {
+export const getEvents = async () => {
   NProgress.start();
 
   if (window.location.href.startsWith("http://localhost")) {
     NProgress.done();
-    return { events: mockEvent, locations: extractLocations(mockEvent) };
-  }
-  if (!navigator.onLine) {
-    const { events } = await localStorage.getItem("lastEvents");
-    NProgress.done();
-
-    return { events: JSON.parse(events), locations: extractLocations(events) };
+    return mockData;
   }
 
   const token = await getAccessToken();
-  console.log("getEvents token: ", token);
+
   if (token) {
     removeQuery();
-    const url = `https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api/get-events/${token}/${max_results}`;
+    const url =
+      "https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api" +
+      "/" +
+      token;
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
-      localStorage.setItem("lastEvents", JSON.stringify(result.data.events));
+      localStorage.setItem("lastEvents", JSON.stringify(result.data));
       localStorage.setItem("locations", JSON.stringify(locations));
     }
     NProgress.done();
-    return { events: result.data.events, locations };
+    return result.data.events;
   }
 };
 const getAccessToken = async () => {
@@ -92,10 +89,11 @@ const getAccessToken = async () => {
 };
 
 const getToken = async (code) => {
-  removeQuery();
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
-    `https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api/token/${encodeCode}`
+    "https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api/token" +
+      "/" +
+      encodeCode
   )
     .then((res) => {
       return res.json();
@@ -107,4 +105,4 @@ const getToken = async (code) => {
   return access_token;
 };
 
-export { getEvents, getAccessToken, extractLocations, getToken, checkToken };
+export { getAccessToken, extractLocations, getToken, checkToken };
