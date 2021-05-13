@@ -55,8 +55,8 @@ export const getEvents = async () => {
   if (token) {
     removeQuery();
     const url =
-      "https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api" +
-      "/" +
+      `https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api` +
+      `/` +
       token;
     const result = await axios.get(url);
     if (result.data) {
@@ -68,8 +68,8 @@ export const getEvents = async () => {
     return result.data.events;
   }
 };
-const getAccessToken = async () => {
-  const accessToken = localStorage.getItem("access_token");
+export const getAccessToken = async () => {
+  const accessToken = localStorage.getItem(`access_token`);
   const tokenCheck = accessToken && (await checkToken(accessToken));
 
   if (!accessToken || tokenCheck.error) {
@@ -78,7 +78,7 @@ const getAccessToken = async () => {
     const code = await searchParams.get("code");
     if (!code) {
       const results = await axios.get(
-        "https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url"
+        `https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url`
       );
       const { authUrl } = results.data;
       return (window.location.href = authUrl);
@@ -91,8 +91,8 @@ const getAccessToken = async () => {
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
-    "https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api/token" +
-      "/" +
+    `https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api/token` +
+      `/` +
       encodeCode
   )
     .then((res) => {
@@ -105,4 +105,4 @@ const getToken = async (code) => {
   return access_token;
 };
 
-export { getAccessToken, extractLocations, getToken, checkToken };
+export { extractLocations, getToken, checkToken };
