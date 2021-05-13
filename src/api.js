@@ -60,7 +60,7 @@ const getEvents = async (max_results = 32) => {
   console.log("getEvents token: ", token);
   if (token) {
     removeQuery();
-    const url = `https://f1k17pnw2a.execute-api.us-east-1.amazonaws.com/dev/api/get-events/${token}/${max_results}`;
+    const url = `https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api/get-events/${token}/${max_results}`;
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
@@ -81,7 +81,7 @@ const getAccessToken = async () => {
     const code = await searchParams.get("code");
     if (!code) {
       const results = await axios.get(
-        "https://f1k17pnw2a.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url"
+        "https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url"
       );
       const { authUrl } = results.data;
       return (window.location.href = authUrl);
