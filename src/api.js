@@ -2,23 +2,11 @@ import { mockData } from "./mock-data";
 import axios from "axios";
 import NProgress from "nprogress";
 
-/**
- *
- */
-const removeQuery = () => {
-  if (window.history.pushState && window.location.pathname) {
-    var newurl =
-      window.location.protocol +
-      "//" +
-      window.location.host +
-      window.location.pathname;
-    window.history.pushState("", "", newurl);
-  } else {
-    newurl = window.location.protocol + "//" + window.location.host;
-    window.history.pushState("", "", newurl);
-  }
+export const extractLocations = (events) => {
+  var extractLocatins = events.map((event) => event.location);
+  var locations = [...new Set(extractLocatins)];
+  return locations;
 };
-
 const checkToken = async (accessToken) => {
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
@@ -28,23 +16,17 @@ const checkToken = async (accessToken) => {
 
   return result;
 };
-/**
- *
- * @param {*} events:
- * The following function is to be in api.js.
- * This function takes an events array, then uses map to create a new array with only locations.
- * Lastly, we remove all duplicates by creating another new array by using the spread operator and spreading a Set.
- * The Set removes all duplicates from the array
- */
-const extractLocations = (events) => {
-  var extractLocatins = events.map((event) => event.location);
-  var locations = [...new Set(extractLocatins)];
-  return locations;
-};
 
 export const getEvents = async () => {
   NProgress.start();
-
+  if (
+    !navigator.onLine &&
+    !window.location.href.startsWith("http://localhost")
+  ) {
+    const events = localStorage.getItem("lastEvents");
+    NProgress.done();
+    return JSON.parse(events).events;
+  }
   if (window.location.href.startsWith("http://localhost")) {
     NProgress.done();
     return mockData;
@@ -55,7 +37,7 @@ export const getEvents = async () => {
   if (token) {
     removeQuery();
     const url =
-      `https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api` +
+      `https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api/get-events` +
       `/` +
       token;
     const result = await axios.get(url);
@@ -73,9 +55,9 @@ export const getAccessToken = async () => {
   const tokenCheck = accessToken && (await checkToken(accessToken));
 
   if (!accessToken || tokenCheck.error) {
-    await localStorage.removeItem("access_token");
+    localStorage.removeItem("access_token");
     const searchParams = new URLSearchParams(window.location.search);
-    const code = await searchParams.get("code");
+    const code = searchParams.get("code");
     if (!code) {
       const results = await axios.get(
         `https://ub4wuf4uii.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url`
@@ -105,4 +87,18 @@ const getToken = async (code) => {
   return access_token;
 };
 
-export { extractLocations, getToken, checkToken };
+const removeQuery = () => {
+  if (window.history.pushState && window.location.pathname) {
+    var newurl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname;
+    window.history.pushState("", "", newurl);
+  } else {
+    newurl = window.location.protocol + "//" + window.location.host;
+    window.history.pushState("", "", newurl);
+  }
+};
+
+// export { getToken, checkToken };
