@@ -14,12 +14,10 @@ class NumberOfEvents extends Component {
     if (number <= 0) {
       this.setState({
         eventListSize: number,
-        errorText: "Please select a valid number.",
       });
     } else {
       this.setState({
         eventListSize: number,
-        errorText: "",
       });
     }
     this.props.updateListSize(number);

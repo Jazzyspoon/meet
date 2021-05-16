@@ -2,6 +2,15 @@ import { mockData } from "./mock-data";
 import axios from "axios";
 import NProgress from "nprogress";
 
+export const limitEvents = (events, number) => {
+  let limitedList = [];
+  for (let i = 0; i < number; i++) {
+    if (events[i]) {
+      limitedList.push(events[i]);
+    }
+  }
+  return limitedList;
+};
 export const extractLocations = (events) => {
   var extractLocatins = events.map((event) => event.location);
   var locations = [...new Set(extractLocatins)];
