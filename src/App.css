@@ -6,7 +6,7 @@
 
 .App {
   text-align: center;
-  padding: 2% 5%;
+  margin: 20px;
   background-color: black;
   color: rgb(0, 255, 213);
 }
@@ -49,13 +49,14 @@ input[type="number"] {
 }
 
 .logo {
-  display: flex;
   text-align: center;
   max-width: 280px;
   padding: 10px;
-  border: white;
-  border-width: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
 }
+
 .column {
   float: left;
   width: 50%;
@@ -168,10 +169,10 @@ input[type="number"] {
   align-items: center;
   flex-direction: column;
 }
-.data-vis-wrapper .recharts-responsive-container {
+/* .data-vis-wrapper .recharts-responsive-container {
   min-width: 100%;
   display: flex;
-}
+} */
 .recharts-surface {
   overflow: visible;
 }

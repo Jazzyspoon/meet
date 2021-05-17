@@ -53,10 +53,10 @@ class App extends Component {
     let { limitedList } = this.state;
     return (
       <Container fluid="md" className="App">
-        <Row className="justify-content-lg-center">
+        <Row className="justify-content-md-center">
           <Image src={logo} alt="logo image" className="logo" />
         </Row>
-        <Row className="justify-content-lg-left">
+        <Row className="justify-content-md-center">
           <Col>
             <CitySearch
               locations={this.state.locations}
@@ -71,7 +71,7 @@ class App extends Component {
           </Col>
         </Row>
 
-        <Row className="justify-content-lg-center">
+        <Row className="justify-content-md-center">
           <Col>
             <EventList
               events={limitedList}
