@@ -188,7 +188,11 @@ input[type="number"] {
   min-width: 10rem;
   margin: 1rem;
 }
-
+img {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 1px;
+}
 .google-btn {
   width: 184px;
   height: 42px;
