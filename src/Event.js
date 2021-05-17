@@ -29,13 +29,16 @@ class Event extends Component {
           <h5 style={{ color: "white" }} className="description">
             {description}
           </h5>
-          <a
-            style={{ fontSize: "20px", textAlign: "center" }}
-            className="link"
-            href={link}
-          >
-            See event on Google Calendar
-          </a>
+          <div>
+            <a
+              style={{ fontSize: "20px", textAlign: "center" }}
+              className="link"
+              href={link}
+            >
+              See event on Google Calendar
+            </a>
+          </div>
+          <br></br>
           <Button
             variant="danger"
             style={{
@@ -43,6 +46,7 @@ class Event extends Component {
               fontSize: "18px",
               fontWeight: "bold",
               textAlign: "center",
+              marginTop: "10px",
             }}
             className="detailsButton"
             onClick={() => this.handleShowDetails(false)}

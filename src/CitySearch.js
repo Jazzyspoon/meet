@@ -61,7 +61,7 @@ class CitySearch extends Component {
         >
           {this.state.suggestions.map((suggestion) => (
             <li
-              style={{ color: "black", fontSize: "20px", textAlign: "center" }}
+              style={{ color: "white", fontSize: "20px", textAlign: "center" }}
               key={suggestion}
               onClick={() => this.handleItemClicked(suggestion)}
             >
