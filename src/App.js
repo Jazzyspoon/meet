@@ -52,16 +52,18 @@ class App extends Component {
   render() {
     let { limitedList } = this.state;
     return (
-      <Container className="App">
-        <Row className="justify-content-lg-left">
+      <Container fluid="md" className="App">
+        <Row className="justify-content-md-center">
           <Image src={logo} alt="logo image" className="logo" />
-          <Col xs={12} sm={4} md={4}>
+        </Row>
+        <Row className="justify-content-lg-left">
+          <Col>
             <CitySearch
               locations={this.state.locations}
               updateEvents={this.updateEvents}
             />
           </Col>
-          <Col xs={12} sm={4} md={4}>
+          <Col>
             <NumberOfEvents
               number={this.state.eventListSize}
               updateListSize={this.updateListSize}
@@ -69,7 +71,7 @@ class App extends Component {
           </Col>
         </Row>
         <Row className="justify-content-lgd-center">
-          <Col xs={12} sm={12} md={12}>
+          <Col>
             <EventList
               events={limitedList}
               eventListSize={this.state.eventListSize}

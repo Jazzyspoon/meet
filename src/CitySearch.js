@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { InputGroup, ListGroup } from "react-bootstrap";
+import { InputGroup } from "react-bootstrap";
 
 class CitySearch extends Component {
   constructor() {
@@ -34,13 +34,13 @@ class CitySearch extends Component {
     return (
       <div className="CitySearch">
         <InputGroup>
-          <InputGroup.Prepend>
+          <div>
             <label
               style={{ color: "white", fontSize: "20px", textAlign: "center" }}
             >
               <h4>Enter Your City: </h4>
             </label>
-          </InputGroup.Prepend>
+          </div>
           <br></br>
           <input
             style={{ color: "black", fontSize: "24px", textAlign: "center" }}
@@ -55,20 +55,20 @@ class CitySearch extends Component {
             }}
           />
         </InputGroup>
-        <ListGroup
+        <ul
           className="suggestions"
           style={this.state.showSuggestions ? {} : { display: "none" }}
         >
           {this.state.suggestions.map((suggestion) => (
-            <ListGroup.Item
+            <li
               style={{ color: "black", fontSize: "20px", textAlign: "center" }}
               key={suggestion}
               onClick={() => this.handleItemClicked(suggestion)}
             >
               {suggestion}
-            </ListGroup.Item>
+            </li>
           ))}
-          <ListGroup.Item
+          <li
             style={{
               color: "white",
               fontSize: "18px",
@@ -79,8 +79,8 @@ class CitySearch extends Component {
             onClick={() => this.handleItemClicked("all")}
           >
             <b style={{ color: "white" }}>See all cities</b>
-          </ListGroup.Item>
-        </ListGroup>
+          </li>
+        </ul>
       </div>
     );
   }

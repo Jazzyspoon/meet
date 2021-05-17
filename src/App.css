@@ -35,12 +35,13 @@ p {
 
 input[type="text"],
 input[type="number"] {
+  background-color: white;
   padding: 8px 6px 8px 10px;
   border-radius: 4px;
   outline: none;
   border: 1px solid #ccc;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 30px;
   align-self: center;
   height: 38px;
   width: fit-content;
@@ -48,8 +49,11 @@ input[type="number"] {
 
 .logo {
   display: flex;
-  max-width: 200px;
+  text-align: center;
+  max-width: 280px;
   padding: 10px;
+  border: white;
+  border-width: 10px;
 }
 .column {
   float: left;
@@ -221,11 +225,6 @@ input[type="number"] {
   font-size: 14px;
   letter-spacing: 0.2px;
   font-family: "Roboto";
-}
-
-input {
-  background-color: white;
-  min-height: 25px;
 }
 
 @media only screen and (min-width: 992px) {

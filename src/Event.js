@@ -25,16 +25,25 @@ class Event extends Component {
         <div className="expanded">
           {/* See details on Google Calendar */}
 
-          <h2>About the event:</h2>
-          <p style={{ color: "white" }} className="description">
+          <h3>About the event:</h3>
+          <h5 style={{ color: "white" }} className="description">
             {description}
-          </p>
-          <a className="link" href={link}>
+          </h5>
+          <a
+            style={{ fontSize: "20px", textAlign: "center" }}
+            className="link"
+            href={link}
+          >
             See event on Google Calendar
           </a>
           <Button
             variant="danger"
-            style={{ color: "black", fontSize: "14px", textAlign: "center" }}
+            style={{
+              color: "black",
+              fontSize: "18px",
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
             className="detailsButton"
             onClick={() => this.handleShowDetails(false)}
           >
@@ -46,7 +55,12 @@ class Event extends Component {
       details = (
         <Button
           variant="success"
-          style={{ color: "black", fontSize: "14px", textAlign: "center" }}
+          style={{
+            color: "black",
+            fontSize: "14px",
+            textAlign: "center",
+            fontWeight: "bold",
+          }}
           className="detailsButton"
           onClick={() => this.handleShowDetails(true)}
         >
@@ -57,13 +71,13 @@ class Event extends Component {
 
     return (
       <div className="event">
-        <h1 className="summary">
+        <h2 className="summary">
           Event: <p style={{ color: "white" }}>{summary}</p>
-        </h1>{" "}
-        <h4 className="date">When: </h4>
-        <h4 style={{ color: "white" }}>{date}</h4>
-        <h4 className="location">Where: </h4>
-        <h4 style={{ color: "white" }}>{location}</h4>
+        </h2>{" "}
+        <h5 className="date">When: </h5>
+        <h5 style={{ color: "white" }}>{date}</h5>
+        <h5 className="location">Where: </h5>
+        <h5 style={{ color: "white" }}>{location}</h5>
         {details}
       </div>
     );
