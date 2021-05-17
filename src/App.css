@@ -22,7 +22,10 @@ ul {
   margin-top: 50px;
   color: rgb(0, 255, 213);
 }
-
+.center {
+  display: flex;
+  justify-content: center;
+}
 p {
   margin: 5px 0;
 }
