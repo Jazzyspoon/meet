@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "react-bootstrap";
 
 class Event extends Component {
   constructor(props) {
@@ -29,22 +30,24 @@ class Event extends Component {
           <a className="link" href={link}>
             See event on Google Calendar
           </a>
-          <button
+          <Button
+            variant="outline-danger"
             className="detailsButton"
             onClick={() => this.handleShowDetails(false)}
           >
             Hide details
-          </button>
+          </Button>
         </div>
       );
     } else {
       details = (
-        <button
+        <Button
+          variant="outline-success"
           className="detailsButton"
           onClick={() => this.handleShowDetails(true)}
         >
           Expand for Details
-        </button>
+        </Button>
       );
     }
 

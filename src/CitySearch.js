@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { InputGroup, FormControl, ListGroup } from "react-bootstrap";
 
 class CitySearch extends Component {
   constructor() {
@@ -32,32 +33,54 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
-        <label>Enter Your City:</label>
-        <input
-          type="text"
-          className="city"
-          value={this.state.query}
-          onChange={this.handleInputChanged}
-          onFocus={() => {
-            this.setState({ showSuggestions: true });
-          }}
-        />
-        <ul
+        <InputGroup>
+          <InputGroup.Prepend>
+            <InputGroup.Text
+              style={{ color: "black", fontSize: "18px", textAlign: "center" }}
+            >
+              Enter Your City:
+            </InputGroup.Text>
+          </InputGroup.Prepend>
+          <FormControl
+            style={{ color: "black", fontSize: "18px", textAlign: "center" }}
+            position="center"
+            as="textarea"
+            aria-label="With textarea"
+            type="text"
+            className="city"
+            value={this.state.query}
+            onChange={this.handleInputChanged}
+            onFocus={() => {
+              this.setState({ showSuggestions: true });
+            }}
+          />
+        </InputGroup>
+        <ListGroup
           className="suggestions"
           style={this.state.showSuggestions ? {} : { display: "none" }}
         >
           {this.state.suggestions.map((suggestion) => (
-            <li
+            <ListGroup.Item
+              style={{ color: "black", fontSize: "18px", textAlign: "center" }}
               key={suggestion}
               onClick={() => this.handleItemClicked(suggestion)}
             >
               {suggestion}
-            </li>
+            </ListGroup.Item>
           ))}
-          <li key="all" onClick={() => this.handleItemClicked("all")}>
-            <b>See all cities</b>
-          </li>
-        </ul>
+          <ListGroup.Item
+            style={{
+              color: "black",
+              fontSize: "18px",
+              textAlign: "center",
+              padding: "10px",
+            }}
+            key="all"
+            onClick={() => this.handleItemClicked("all")}
+          >
+            <b style={{ color: "black" }}>See all cities</b>
+          </ListGroup.Item>
+        </ListGroup>
       </div>
     );
   }

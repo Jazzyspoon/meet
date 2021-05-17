@@ -4,12 +4,14 @@ import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOFEvents";
 import { getEvents, extractLocations, limitEvents } from "./api";
+import { Row, Col, Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   state = {
     events: [],
     locations: [],
-    eventListSize: 10,
+    eventListSize: 12,
     limitedList: [],
   };
   updateEvents = (location) => {
@@ -50,21 +52,29 @@ class App extends Component {
     let { limitedList } = this.state;
     return (
       <div className="App">
-        <CitySearch
-          locations={this.state.locations}
-          updateEvents={this.updateEvents}
-        />
-        <div>
-          <br></br>
-          <NumberOfEvents
-            number={this.state.eventListSize}
-            updateListSize={this.updateListSize}
-          />
-        </div>
-        <EventList
-          events={limitedList}
-          eventListSize={this.state.eventListSize}
-        />
+        <Container>
+          <Row>
+            <Col>
+              <CitySearch
+                locations={this.state.locations}
+                updateEvents={this.updateEvents}
+              />
+            </Col>
+            <Col>
+              <NumberOfEvents
+                number={this.state.eventListSize}
+                updateListSize={this.updateListSize}
+              />
+            </Col>
+          </Row>
+
+          <Col>
+            <EventList
+              events={limitedList}
+              eventListSize={this.state.eventListSize}
+            />
+          </Col>
+        </Container>
       </div>
     );
   }
