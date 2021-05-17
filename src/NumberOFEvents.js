@@ -28,14 +28,12 @@ class NumberOfEvents extends Component {
     return (
       <div className="NumberOfEvents">
         <InputGroup>
-          <InputGroup.Prepend>
-            <label
-              style={{ color: "white", fontSize: "20px", textAlign: "center" }}
-            >
+          <div>
+            <label style={{ color: "white" }}>
               <h4>Events Listed: </h4>
             </label>
-          </InputGroup.Prepend>
-          <br></br>
+          </div>
+
           <input
             style={{
               color: "black",

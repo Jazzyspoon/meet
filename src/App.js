@@ -12,7 +12,7 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    eventListSize: 12,
+    eventListSize: 32,
     limitedList: [],
   };
   updateEvents = (location) => {
@@ -52,37 +52,34 @@ class App extends Component {
   render() {
     let { limitedList } = this.state;
     return (
-      <div>
-        <Container fluid="md" className="App">
-          <Row className="justify-content-md-center">
-            <Image src={logo} alt="logo image" className="logo" />
-          </Row>
-          <Row className="justify-content-lg-left">
-            <Col>
-              <CitySearch
-                locations={this.state.locations}
-                updateEvents={this.updateEvents}
-              />
-            </Col>
-            <Col>
-              <NumberOfEvents
-                number={this.state.eventListSize}
-                updateListSize={this.updateListSize}
-              />
-            </Col>
-          </Row>
-        </Container>
-        <Container>
-          <Row className="justify-content-lgd-center">
-            <Col>
-              <EventList
-                events={limitedList}
-                eventListSize={this.state.eventListSize}
-              />
-            </Col>
-          </Row>
-        </Container>
-      </div>
+      <Container fluid="md" className="App">
+        <Row className="justify-content-lg-center">
+          <Image src={logo} alt="logo image" className="logo" />
+        </Row>
+        <Row className="justify-content-lg-left">
+          <Col>
+            <CitySearch
+              locations={this.state.locations}
+              updateEvents={this.updateEvents}
+            />
+          </Col>
+          <Col>
+            <NumberOfEvents
+              number={this.state.eventListSize}
+              updateListSize={this.updateListSize}
+            />
+          </Col>
+        </Row>
+
+        <Row className="justify-content-lg-center">
+          <Col>
+            <EventList
+              events={limitedList}
+              eventListSize={this.state.eventListSize}
+            />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
