@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { InputGroup, FormControl } from "react-bootstrap";
+import { InputGroup } from "react-bootstrap";
 
 class NumberOfEvents extends Component {
   constructor(props) {
@@ -26,21 +26,21 @@ class NumberOfEvents extends Component {
 
   render() {
     return (
-      <div>
-        <InputGroup className="NumberOfEvents">
+      <div className="NumberOfEvents">
+        <InputGroup>
           <InputGroup.Prepend>
-            <InputGroup.Text
-              style={{ color: "black", fontSize: "18px", textAlign: "center" }}
+            <label
+              style={{ color: "white", fontSize: "20px", textAlign: "center" }}
             >
-              Number of Events:{" "}
-            </InputGroup.Text>
+              <h4>Events Listed: </h4>
+            </label>
           </InputGroup.Prepend>
-          <FormControl
+          <br></br>
+          <input
             style={{
               color: "black",
-              fontSize: "15px",
+              fontSize: "24px",
               textAlign: "center",
-              padding: "10px",
             }}
             as="textarea"
             aria-label="With textarea"

@@ -4,8 +4,9 @@ import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOFEvents";
 import { getEvents, extractLocations, limitEvents } from "./api";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import logo from "./images/logo.png";
 
 class App extends Component {
   state = {
@@ -51,31 +52,31 @@ class App extends Component {
   render() {
     let { limitedList } = this.state;
     return (
-      <div className="App">
-        <Container>
-          <Row>
-            <Col>
-              <CitySearch
-                locations={this.state.locations}
-                updateEvents={this.updateEvents}
-              />
-            </Col>
-            <Col>
-              <NumberOfEvents
-                number={this.state.eventListSize}
-                updateListSize={this.updateListSize}
-              />
-            </Col>
-          </Row>
-
-          <Col>
+      <Container className="App">
+        <Row className="justify-content-lg-left">
+          <Image src={logo} alt="logo image" className="logo" />
+          <Col xs={12} sm={4} md={4}>
+            <CitySearch
+              locations={this.state.locations}
+              updateEvents={this.updateEvents}
+            />
+          </Col>
+          <Col xs={12} sm={4} md={4}>
+            <NumberOfEvents
+              number={this.state.eventListSize}
+              updateListSize={this.updateListSize}
+            />
+          </Col>
+        </Row>
+        <Row className="justify-content-lgd-center">
+          <Col xs={12} sm={12} md={12}>
             <EventList
               events={limitedList}
               eventListSize={this.state.eventListSize}
             />
           </Col>
-        </Container>
-      </div>
+        </Row>
+      </Container>
     );
   }
 }

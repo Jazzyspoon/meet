@@ -25,13 +25,16 @@ class Event extends Component {
         <div className="expanded">
           {/* See details on Google Calendar */}
 
-          <h2>About event</h2>
-          <p className="description">{description}</p>
+          <h2>About the event:</h2>
+          <p style={{ color: "white" }} className="description">
+            {description}
+          </p>
           <a className="link" href={link}>
             See event on Google Calendar
           </a>
           <Button
-            variant="outline-danger"
+            variant="danger"
+            style={{ color: "black", fontSize: "14px", textAlign: "center" }}
             className="detailsButton"
             onClick={() => this.handleShowDetails(false)}
           >
@@ -42,7 +45,8 @@ class Event extends Component {
     } else {
       details = (
         <Button
-          variant="outline-success"
+          variant="success"
+          style={{ color: "black", fontSize: "14px", textAlign: "center" }}
           className="detailsButton"
           onClick={() => this.handleShowDetails(true)}
         >
@@ -53,9 +57,13 @@ class Event extends Component {
 
     return (
       <div className="event">
-        <h1 className="summary">{summary}</h1>
-        <p className="date">{date}</p>
-        <p className="location">{location}</p>
+        <h1 className="summary">
+          Event: <p style={{ color: "white" }}>{summary}</p>
+        </h1>{" "}
+        <h4 className="date">When: </h4>
+        <h4 style={{ color: "white" }}>{date}</h4>
+        <h4 className="location">Where: </h4>
+        <h4 style={{ color: "white" }}>{location}</h4>
         {details}
       </div>
     );

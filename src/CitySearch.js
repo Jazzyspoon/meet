@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { InputGroup, FormControl, ListGroup } from "react-bootstrap";
+import { InputGroup, ListGroup } from "react-bootstrap";
 
 class CitySearch extends Component {
   constructor() {
@@ -35,15 +35,15 @@ class CitySearch extends Component {
       <div className="CitySearch">
         <InputGroup>
           <InputGroup.Prepend>
-            <InputGroup.Text
-              style={{ color: "black", fontSize: "18px", textAlign: "center" }}
+            <label
+              style={{ color: "white", fontSize: "20px", textAlign: "center" }}
             >
-              Enter Your City:
-            </InputGroup.Text>
+              <h4>Enter Your City: </h4>
+            </label>
           </InputGroup.Prepend>
-          <FormControl
-            style={{ color: "black", fontSize: "18px", textAlign: "center" }}
-            position="center"
+          <br></br>
+          <input
+            style={{ color: "black", fontSize: "24px", textAlign: "center" }}
             as="textarea"
             aria-label="With textarea"
             type="text"
@@ -61,7 +61,7 @@ class CitySearch extends Component {
         >
           {this.state.suggestions.map((suggestion) => (
             <ListGroup.Item
-              style={{ color: "black", fontSize: "18px", textAlign: "center" }}
+              style={{ color: "black", fontSize: "20px", textAlign: "center" }}
               key={suggestion}
               onClick={() => this.handleItemClicked(suggestion)}
             >
@@ -70,7 +70,7 @@ class CitySearch extends Component {
           ))}
           <ListGroup.Item
             style={{
-              color: "black",
+              color: "white",
               fontSize: "18px",
               textAlign: "center",
               padding: "10px",
@@ -78,7 +78,7 @@ class CitySearch extends Component {
             key="all"
             onClick={() => this.handleItemClicked("all")}
           >
-            <b style={{ color: "black" }}>See all cities</b>
+            <b style={{ color: "white" }}>See all cities</b>
           </ListGroup.Item>
         </ListGroup>
       </div>
