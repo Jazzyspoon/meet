@@ -9,6 +9,7 @@ class CitySearch extends Component {
       query: "",
       suggestions: [],
       showSuggestions: undefined,
+      infoText: "",
     };
   }
   handleInputChanged = (event) => {
@@ -16,10 +17,19 @@ class CitySearch extends Component {
     const suggestions = this.props.locations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
-    this.setState({
-      query: value,
-      suggestions,
-    });
+    if (suggestions.length === 0) {
+      this.setState({
+        query: value,
+        infoText:
+          "We cannot find the city you are looking for. Please check your spelling or try another city.",
+      });
+    } else {
+      this.setState({
+        query: value,
+        suggestions,
+        infoText: "",
+      });
+    }
   };
 
   handleItemClicked = (suggestion) => {
@@ -30,6 +40,7 @@ class CitySearch extends Component {
 
     this.props.updateEvents(suggestion);
   };
+
   render() {
     return (
       <div className="CitySearch">

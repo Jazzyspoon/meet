@@ -75,13 +75,9 @@ class Event extends Component {
 
     return (
       <div className="event">
-        <h2 className="summary">
-          Event: <p style={{ color: "white" }}>{summary}</p>
-        </h2>{" "}
-        <h5 className="date">When: </h5>
-        <h5 style={{ color: "white" }}>{date}</h5>
-        <h5 className="location">Where: </h5>
-        <h5 style={{ color: "white" }}>{location}</h5>
+        <h2 className="summary">{summary}</h2>
+        <h5 className="date">{date}</h5>
+        <h5 className="location">{location}</h5>
         {details}
       </div>
     );
