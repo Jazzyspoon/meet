@@ -2,17 +2,17 @@ import puppeteer from "puppeteer";
 import { describe, expect, test, beforeAll } from "@jest/globals";
 
 describe("show/hide an event details", () => {
-  jest.setTimeout(50000);
+  jest.setTimeout(30000);
   let browser;
   let page;
   beforeAll(async () => {
     browser = await puppeteer.launch({
       headless: false,
-      slowMo: 250, // slow down by 250ms
-      ignoreDefaultArgs: ["--disable-extensions"],
+      slowMo: 250,
+      ignoreDefaultArgs: ["--disable-extensions", "--no-sandbox"],
     });
     page = await browser.newPage();
-    await page.goto("http://localhost:3000/");
+    await page.goto("http://localhost:3000");
     await page.waitForSelector(".event");
   });
 
