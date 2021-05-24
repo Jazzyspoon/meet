@@ -6,16 +6,17 @@ class NumberOfEvents extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      eventListSize: props.number,
+      eventListSize: 32,
       errorText: "",
     };
   }
 
   handleInputChange = (event) => {
     const number = event.target.value;
-    if (number <= 0) {
+    if (number < 1) {
       return this.setState({
         eventListSize: number,
+        errorText: `Select number between 1 and 32`,
       });
     } else if (number > 32) {
       return this.setState({
