@@ -168,6 +168,10 @@ input[type="number"] {
   top: 20px;
 }
 
+.event-rows {
+  margin: 20px;
+}
+
 .data-vis-wrapper {
   display: flex;
   align-items: center;
