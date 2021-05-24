@@ -11,10 +11,6 @@
   color: rgb(0, 255, 213);
 }
 
-.App * {
-  box-sizing: border-box;
-}
-
 ul {
   padding: 0;
   list-style: none;
@@ -90,21 +86,18 @@ input[type="number"] {
 }
 
 .suggestions {
-  width: 250px;
+  width: 500px;
   position: absolute;
   z-index: 2;
   align-self: center;
   margin: 0;
-  top: 43px;
-  font-size: 14px;
-  box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
-  background-color: white;
+  top: 50px;
+  font-size: 25px;
 }
 
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-
   cursor: default;
 }
 
@@ -169,10 +162,6 @@ input[type="number"] {
 
 .Alert {
   top: 20px;
-}
-
-.eventrows {
-  margin: 20px;
 }
 
 .data-vis-wrapper {
