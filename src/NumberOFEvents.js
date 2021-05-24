@@ -4,7 +4,7 @@ import { ErrorAlert } from "./Alert";
 
 class NumberOfEvents extends Component {
   state = {
-    eventListSize: 32,
+    eventListSize: this.props.number,
   };
 
   handleInputChange = (event) => {
