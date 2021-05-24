@@ -137,7 +137,7 @@ input[type="number"] {
   cursor: pointer;
 }
 
-.name {
+/* .name {
   font-size: 18px;
   font-weight: 600;
 }
@@ -150,7 +150,7 @@ input[type="number"] {
 .going,
 .visibility {
   font-style: italic;
-}
+} */
 
 .description {
   overflow-x: hidden;
@@ -165,7 +165,6 @@ input[type="number"] {
 }
 
 .Alert {
-  position: float;
   top: 20px;
 }
 
@@ -178,11 +177,11 @@ input[type="number"] {
   min-width: 100%;
   display: flex;
 } */
-.recharts-surface {
+/* .recharts-surface {
   overflow: visible;
-}
+} */
 
-.login-button {
+/* .login-button {
   color: #494949;
   text-transform: uppercase;
   text-decoration: none;
@@ -193,13 +192,13 @@ input[type="number"] {
   transition: all 0.4s ease 0s;
   min-width: 10rem;
   margin: 1rem;
-}
-img {
+} */
+/* img {
   background-color: #fff;
   border-radius: 4px;
   padding: 1px;
-}
-.google-btn {
+} */
+/* .google-btn {
   width: 184px;
   height: 42px;
   margin: 1rem;
@@ -228,7 +227,7 @@ img {
   margin-left: -8px;
   width: 18px;
   height: 18px;
-}
+} */
 .btn-text {
   float: right;
   margin: 11px 11px 0 0;

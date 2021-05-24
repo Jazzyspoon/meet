@@ -28,7 +28,7 @@ class CitySearch extends Component {
       this.setState({
         query: value,
         suggestions: [],
-        infoText: "Location Unavailable",
+        infoText: "Location Currently Unavailable",
       });
     } else {
       return this.setState({
@@ -57,6 +57,7 @@ class CitySearch extends Component {
             }}
             type="text"
             className="city"
+            placeholder="All Cities"
             value={this.state.query}
             onChange={this.handleInputChanged}
             onFocus={() => {
