@@ -7,7 +7,6 @@ class NumberOfEvents extends Component {
     super(props);
     this.state = {
       eventListSize: 32,
-      errorText: "",
     };
   }
 
