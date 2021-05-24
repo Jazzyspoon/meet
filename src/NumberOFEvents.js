@@ -3,12 +3,9 @@ import { InputGroup } from "react-bootstrap";
 import { ErrorAlert } from "./Alert";
 
 class NumberOfEvents extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      eventListSize: 32,
-    };
-  }
+  state = {
+    eventListSize: 32,
+  };
 
   handleInputChange = (event) => {
     const number = event.target.value;
