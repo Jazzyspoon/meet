@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOFEvents";
 import { getEvents, extractLocations, limitEvents } from "./api";
 import { Row, Col, Container, Image } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import logo from "./images/logo.png";
 
 class App extends Component {
