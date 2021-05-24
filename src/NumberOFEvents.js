@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { InputGroup } from "react-bootstrap";
+import { ErrorAlert } from "./Alert";
 
 class NumberOfEvents extends Component {
   constructor(props) {
@@ -13,15 +14,21 @@ class NumberOfEvents extends Component {
   handleInputChange = (event) => {
     const number = event.target.value;
     if (number <= 0) {
-      this.setState({
+      return this.setState({
         eventListSize: number,
+      });
+    } else if (number > 32) {
+      return this.setState({
+        eventListSize: number,
+        errorText: `Select number between 1 and 32`,
       });
     } else {
       this.setState({
         eventListSize: number,
+        errorText: "",
       });
+      this.props.updateListSize(number);
     }
-    this.props.updateListSize(number);
   };
 
   render() {
@@ -48,6 +55,7 @@ class NumberOfEvents extends Component {
             onChange={this.handleInputChange}
           />
         </InputGroup>
+        <ErrorAlert text={this.state.errorText} />
       </div>
     );
   }
