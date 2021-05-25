@@ -12,26 +12,9 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    eventListSize: 32,
+    eventListSize: 5,
     limitedList: [],
   };
-
-  componentDidMount() {
-    this.mounted = true;
-    getEvents().then((events) => {
-      if (this.mounted) {
-        let limitedList = limitEvents(events, this.state.eventListSize);
-        this.setState({
-          events,
-          locations: extractLocations(events),
-          limitedList: limitedList,
-        });
-      }
-    });
-  }
-  componentWillUnmount() {
-    this.mounted = false;
-  }
   updateEvents = (location) => {
     getEvents().then((events) => {
       const locationEvents =
@@ -53,6 +36,23 @@ class App extends Component {
       limitedList: limitedList,
     });
   };
+  componentDidMount() {
+    this.mounted = true;
+    getEvents().then((events) => {
+      if (this.mounted) {
+        let limitedList = limitEvents(events, this.state.eventListSize);
+        this.setState({
+          events,
+          locations: extractLocations(events),
+          limitedList: limitedList,
+        });
+      }
+    });
+  }
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
   render() {
     let { limitedList } = this.state;
     return (
