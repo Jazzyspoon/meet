@@ -28,7 +28,7 @@ class CitySearch extends Component {
       this.setState({
         query: value,
         suggestions: [],
-        infoText: "Location Currently Unavailable",
+        infoText: "Location Not Recognized",
       });
     } else {
       return this.setState({
