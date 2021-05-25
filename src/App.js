@@ -12,7 +12,7 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    eventListSize: 5,
+    eventListSize: 32,
     limitedList: [],
   };
   updateEvents = (location) => {
