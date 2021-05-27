@@ -87,11 +87,11 @@ class App extends Component {
 
           <Row className="justify-content-md-center">
             <Col>
+              <OfflineAlert text={this.state.offlinealert} />
               <EventList
                 events={limitedList}
                 eventListSize={this.state.eventListSize}
               />
-              <OfflineAlert text={this.state.offlinealert} />
             </Col>
           </Row>
         </Container>
