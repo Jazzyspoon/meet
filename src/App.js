@@ -4,6 +4,7 @@ import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOFEvents";
 import { getEvents, extractLocations, limitEvents } from "./api";
 import { Row, Col, Container, Image } from "react-bootstrap";
+import { OfflineAlert } from "./Alert";
 import "./App.css";
 import logo from "./images/logo.png";
 
@@ -45,6 +46,15 @@ class App extends Component {
           locations: extractLocations(events),
           limitedList: limitedList,
         });
+        if (!navigator.onLine) {
+          this.setState({
+            offlinealert: "You are now offline.",
+          });
+        } else {
+          this.setState({
+            warningText: "",
+          });
+        }
       }
     });
   }
@@ -81,6 +91,7 @@ class App extends Component {
                 events={limitedList}
                 eventListSize={this.state.eventListSize}
               />
+              <OfflineAlert text={this.state.offlinealert} />
             </Col>
           </Row>
         </Container>
