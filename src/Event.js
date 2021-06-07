@@ -61,7 +61,7 @@ class Event extends Component {
           variant="success"
           style={{
             color: "black",
-            fontSize: "14px",
+            fontSize: "18px",
             textAlign: "center",
             fontWeight: "bold",
           }}
