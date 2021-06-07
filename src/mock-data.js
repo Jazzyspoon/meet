@@ -21,11 +21,11 @@ const mockData = [
       self: true,
     },
     start: {
-      dateTime: "2020-05-20T14:00:00+02:00",
+      dateTime: "2022-05-20T14:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     end: {
-      dateTime: "2020-05-20T15:00:00+02:00",
+      dateTime: "2022-05-20T15:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     recurrence: ["RRULE:FREQ=WEEKLY;WKST=SU;BYDAY=FR,MO,WE"],
@@ -58,11 +58,11 @@ const mockData = [
       self: true,
     },
     start: {
-      dateTime: "2020-05-19T16:00:00+02:00",
+      dateTime: "2021-08-19T16:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     end: {
-      dateTime: "2020-05-19T17:00:00+02:00",
+      dateTime: "2021-08-19T17:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     recurrence: ["RRULE:FREQ=WEEKLY;WKST=SU;BYDAY=SA,TH,TU"],
@@ -95,11 +95,11 @@ const mockData = [
       self: true,
     },
     start: {
-      dateTime: "2020-06-30T09:00:00+02:00",
+      dateTime: "2021-08-30T09:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     end: {
-      dateTime: "2020-06-30T10:00:00+02:00",
+      dateTime: "2021-08-30T10:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     recurrence: ["RRULE:FREQ=WEEKLY;BYDAY=TU"],
@@ -164,11 +164,11 @@ const mockData = [
       self: true,
     },
     start: {
-      dateTime: "2020-06-29T22:00:00+02:00",
+      dateTime: "2021-07-29T22:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     end: {
-      dateTime: "2020-06-29T23:00:00+02:00",
+      dateTime: "2021-07-29T23:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     recurrence: ["RRULE:FREQ=WEEKLY;WKST=SU;BYDAY=FR,MO,WE"],
@@ -984,7 +984,7 @@ const mockEvent = {
   summary: "Learn JavaScript",
   description:
     "Have you wondered how you can ask Google to show you the list of the top ten must-see places in London? And how Google presents you the list? How can you submit the details of an application? Well, JavaScript is doing these. :) \n\nJavascript offers interactivity to a dull, static website. Come, learn JavaScript with us and make those beautiful websites.",
-  location: "London, US",
+  location: "London, UK",
   creator: {
     email: "fullstackwebdev@careerfoundry.com",
     self: true,
