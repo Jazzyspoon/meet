@@ -114,16 +114,32 @@ class App extends Component {
                 <EventGenre events={events} />
                 <ResponsiveContainer height={400}>
                   <ScatterChart
-                    margin={{ top: 20, right: 20, bottom: 10, left: 10 }}
+                    margin={{ top: 10, right: 20, bottom: 10, left: 5 }}
                   >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis type="category" dataKey="city" name="city" />
+                    <XAxis
+                      type="category"
+                      dataKey="city"
+                      name="city"
+                      style={{
+                        color: "white",
+                        fontSize: "10px",
+                        fontWeight: "bold",
+                        textAlign: "center",
+                      }}
+                    />
                     <YAxis
                       type="number"
                       dataKey="number"
                       name="number of events"
                       label="number of events"
                       allowDecimals={false}
+                      style={{
+                        color: "white",
+                        fontSize: "18px",
+                        fontWeight: "bold",
+                        textAlign: "center",
+                      }}
                     />
 
                     <Scatter data={this.getData()} fill="#8884d8" />
