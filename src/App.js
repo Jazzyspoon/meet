@@ -28,6 +28,7 @@ class App extends Component {
 
   getData = () => {
     const { locations, events } = this.state;
+
     const data = locations.map((location) => {
       const number = events.filter(
         (event) => event.location === location
@@ -114,36 +115,43 @@ class App extends Component {
                 <EventGenre events={events} />
                 <ResponsiveContainer height={400}>
                   <ScatterChart
-                    margin={{ top: 10, right: 20, bottom: 10, left: 5 }}
+                    width={400}
+                    height={400}
+                    margin={{
+                      top: 20,
+                      right: 40,
+                      bottom: 20,
+                      left: 0,
+                    }}
                   >
-                    <CartesianGrid strokeDasharray="3 3" />
+                    <CartesianGrid />
                     <XAxis
                       type="category"
                       dataKey="city"
                       name="city"
                       style={{
-                        color: "white",
-                        fontSize: "10px",
+                        fontSize: "8px",
                         fontWeight: "bold",
-                        textAlign: "center",
                       }}
                     />
                     <YAxis
                       type="number"
                       dataKey="number"
                       name="number of events"
-                      label="number of events"
                       allowDecimals={false}
                       style={{
-                        color: "white",
                         fontSize: "18px",
                         fontWeight: "bold",
-                        textAlign: "center",
                       }}
                     />
 
-                    <Scatter data={this.getData()} fill="#8884d8" />
-                    <Scatter data={this.getData()} fill="#82ca9d" />
+                    <Scatter
+                      data={this.getData()}
+                      fill="#82ca9d"
+                      stroke="rgb(0, 157, 249)"
+                      strokeWidth={1}
+                      fillOpacity={0.25}
+                    />
                   </ScatterChart>
                 </ResponsiveContainer>
               </div>

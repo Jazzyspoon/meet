@@ -26,9 +26,9 @@ const EventGenre = ({ events }) => {
           className="pie-chart"
           data={data}
           labelLine={false}
-          outerRadius={150}
+          outerRadius={140}
           fill="#8884d8"
-          cx="47%"
+          cx="50%"
           cy="50%"
           dataKey="value"
           label={({ name, percent }) =>
