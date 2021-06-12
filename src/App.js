@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOFEvents";
-import Login from "./Login";
 
-import { checkToken, getEvents, extractLocations, limitEvents } from "./api";
+import { getEvents, extractLocations, limitEvents } from "./api";
 import { Row, Col, Container, Image } from "react-bootstrap";
 import { OfflineAlert } from "./Alert";
 import {
@@ -25,7 +24,6 @@ class App extends Component {
     locations: [],
     eventListSize: 32,
     limitedList: [],
-    tokenCheck: false,
   };
 
   getData = () => {
@@ -40,7 +38,6 @@ class App extends Component {
     });
     return data;
   };
-
   updateEvents = (location) => {
     getEvents().then((events) => {
       const locationEvents =
@@ -62,20 +59,8 @@ class App extends Component {
       limitedList: limitedList,
     });
   };
-  async componentDidMount() {
-    const accessToken = localStorage.getItem("access_token");
-    const validToken =
-      accessToken !== null ? await checkToken(accessToken) : false;
-    this.setState({ tokenCheck: validToken });
-    if (validToken === true) this.updateEvents();
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get("code");
+  componentDidMount() {
     this.mounted = true;
-    if (code && this.mounted === true && validToken === false) {
-      this.setState({ tokenCheck: true });
-      this.updateEvents();
-    }
-
     getEvents().then((events) => {
       if (this.mounted) {
         let limitedList = limitEvents(events, this.state.eventListSize);
@@ -101,12 +86,8 @@ class App extends Component {
   }
 
   render() {
-    let { tokenCheck, limitedList, events } = this.state;
-    return tokenCheck === false ? (
-      <div className="App">
-        <Login />
-      </div>
-    ) : (
+    let { limitedList, events } = this.state;
+    return (
       <div className="center">
         <Container fluid="md" className="App">
           <Row className="justify-content-md-center">
