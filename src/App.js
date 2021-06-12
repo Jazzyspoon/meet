@@ -25,6 +25,7 @@ class App extends Component {
     locations: [],
     eventListSize: 32,
     limitedList: [],
+    checkToken: false,
   };
 
   getData = () => {
@@ -86,8 +87,8 @@ class App extends Component {
     this.mounted = false;
   }
   render() {
-    let { tokenCheck, limitedList, events } = this.state;
-    return tokenCheck === false ? (
+    let { checkToken, limitedList, events } = this.state;
+    return checkToken === false ? (
       <div className="App">
         <Login />
       </div>
