@@ -40,6 +40,7 @@ class App extends Component {
     });
     return data;
   };
+
   updateEvents = (location) => {
     getEvents().then((events) => {
       const locationEvents =
