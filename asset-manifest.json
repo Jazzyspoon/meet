@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/meet/static/css/main.bf3c8031.chunk.css",
-    "main.js": "/meet/static/js/main.372b151c.chunk.js",
-    "main.js.map": "/meet/static/js/main.372b151c.chunk.js.map",
+    "main.js": "/meet/static/js/main.aa9d3f0b.chunk.js",
+    "main.js.map": "/meet/static/js/main.aa9d3f0b.chunk.js.map",
     "runtime-main.js": "/meet/static/js/runtime-main.bd213609.js",
     "runtime-main.js.map": "/meet/static/js/runtime-main.bd213609.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/meet/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.44317b01.chunk.js": "/meet/static/js/2.44317b01.chunk.js",
-    "static/js/2.44317b01.chunk.js.map": "/meet/static/js/2.44317b01.chunk.js.map",
+    "static/js/2.34f54dbe.chunk.js": "/meet/static/js/2.34f54dbe.chunk.js",
+    "static/js/2.34f54dbe.chunk.js.map": "/meet/static/js/2.34f54dbe.chunk.js.map",
     "static/js/3.200b6732.chunk.js": "/meet/static/js/3.200b6732.chunk.js",
     "static/js/3.200b6732.chunk.js.map": "/meet/static/js/3.200b6732.chunk.js.map",
     "index.html": "/meet/index.html",
@@ -15,14 +15,14 @@
     "service-worker.js.map": "/meet/service-worker.js.map",
     "static/css/2.4c97ca4f.chunk.css.map": "/meet/static/css/2.4c97ca4f.chunk.css.map",
     "static/css/main.bf3c8031.chunk.css.map": "/meet/static/css/main.bf3c8031.chunk.css.map",
-    "static/js/2.44317b01.chunk.js.LICENSE.txt": "/meet/static/js/2.44317b01.chunk.js.LICENSE.txt",
+    "static/js/2.34f54dbe.chunk.js.LICENSE.txt": "/meet/static/js/2.34f54dbe.chunk.js.LICENSE.txt",
     "static/media/logo.5557688f.png": "/meet/static/media/logo.5557688f.png"
   },
   "entrypoints": [
     "static/js/runtime-main.bd213609.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.44317b01.chunk.js",
+    "static/js/2.34f54dbe.chunk.js",
     "static/css/main.bf3c8031.chunk.css",
-    "static/js/main.372b151c.chunk.js"
+    "static/js/main.aa9d3f0b.chunk.js"
   ]
 }
