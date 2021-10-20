@@ -46,7 +46,7 @@ Then the event should be collapsed and details should be hidden
 Scenario 2: User can expand an event to see its details
 Given the user has chosen an event from the list
 When the user clicks on an event
-Then the event will expand and the deatils will be revieled
+Then the event will expand and the details will be revealed
 
 Scenario 3: User can collapse an event to hide its details
 Given the user has an event expanded
@@ -71,7 +71,7 @@ Then the number of events aligns with the users preference
 ---FEATURE 4: USE THE APP WHEN OFFLINE-
 As a user
 I should be able to cache memory
-So that I can continue viewing conent when offline
+So that I can continue viewing content when offline
 
 Scenario 1: Show cached data when there’s no internet connection
 Given the user no longer has an internet connection
