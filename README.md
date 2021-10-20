@@ -9,6 +9,8 @@ Key Features:
 ● Add an app shortcut to the home screen.
 ● View a chart showing the number of upcoming events by city
 
+<img src="https://github.com/Jazzyspoon/meet/blob/master/meetapp.JPG"></img>
+
 ---
 
 --FEATURE 1: FILTER EVENTS BY CITY -
