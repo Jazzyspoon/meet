@@ -44,7 +44,6 @@ class NumberOfEvents extends Component {
               fontSize: "24px",
               textAlign: "center",
             }}
-            as="textarea"
             aria-label="With textarea"
             type="number"
             className="number"

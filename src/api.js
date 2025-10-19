@@ -12,8 +12,8 @@ export const limitEvents = (events, number) => {
   return limitedList;
 };
 export const extractLocations = (events) => {
-  var extractLocatins = events.map((event) => event.location);
-  var locations = [...new Set(extractLocatins)];
+  let extractLocations = events.map((event) => event.location);
+  let locations = [...new Set(extractLocations)];
   return locations;
 };
 export const checkToken = async (accessToken) => {
@@ -57,7 +57,7 @@ export const getEvents = async () => {
       token;
     const result = await axios.get(url);
     if (result.data) {
-      var locations = extractLocations(result.data.events);
+      let locations = extractLocations(result.data.events);
       localStorage.setItem("lastEvents", JSON.stringify(result.data));
       localStorage.setItem("locations", JSON.stringify(locations));
     }
@@ -101,18 +101,18 @@ const getToken = async (code) => {
 
   return access_token;
 };
-
+let newUrl;
 const removeQuery = () => {
   if (window.history.pushState && window.location.pathname) {
-    var newurl =
+    newUrl =
       window.location.protocol +
       "//" +
       window.location.host +
       window.location.pathname;
-    window.history.pushState("", "", newurl);
+    window.history.pushState("", "", newUrl);
   } else {
-    newurl = window.location.protocol + "//" + window.location.host;
-    window.history.pushState("", "", newurl);
+    newUrl = window.location.protocol + "//" + window.location.host;
+    window.history.pushState("", "", newUrl);
   }
 };
 

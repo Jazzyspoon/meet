@@ -53,7 +53,10 @@ export function register(config) {
 }
 
 function registerValidSW(swUrl, config) {
-  navigator.serviceWorker
+    config.onSuccess = () => {
+      console.log('Service Worker registered successfully.');
+    };
+    navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
       registration.onupdatefound = () => {
@@ -128,7 +131,7 @@ export function unregister() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready
       .then((registration) => {
-        registration.unregister();
+        return registration.unregister();
       })
       .catch((error) => {
         console.error(error.message);

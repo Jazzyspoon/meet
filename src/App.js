@@ -28,6 +28,8 @@ class App extends Component {
     checkToken: false,
   };
 
+
+
   getData = () => {
     const { locations, events } = this.state;
 
@@ -73,7 +75,7 @@ class App extends Component {
         });
         if (!navigator.onLine) {
           this.setState({
-            offlinealert: "You are now offline.",
+            offlineAlert: "You are now offline.",
           });
         } else {
           this.setState({
@@ -115,7 +117,7 @@ class App extends Component {
 
           <Row className="justify-content-md-center">
             <Col>
-              <OfflineAlert text={this.state.offlinealert} />
+              <OfflineAlert text={this.state.offlineAlert} />
               <div className="data-vis-wrapper">
                 <EventGenre events={events} />
                 <ResponsiveContainer height={400}>
